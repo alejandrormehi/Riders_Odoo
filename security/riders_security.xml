@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <data>
+            <!--DEFINICION CATEGORIA SEGURIDAD-->
+            <record model="ir.module.category" id="riders.module_category_riders">
+                <field name="name">riders</field>
+                <field name="description">Ayuda para gestionar los riders de tu empresa</field>
+                <field name="sequence">100</field>
+            </record>
+
+            <record model="res.groups" id="groups_riders_usuario">
+                <field name="name">Usuario</field>
+                <field name="category_id" ref="riders.module_category_riders"/>
+                <field name="comment">Usuario que gestiona drivers y rutas</field>
+
+                <!--LOS MIEMBROS DEL GRUPO DIRECTOR TAMBIEN SON MIEMBROS DEL RUPO DE USUARIO-->
+                <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            </record>
+
+            <record model="res.groups" id="groups_riders_director">
+                <field name="name">Director</field>
+                <field name="category_id" ref="riders.module_category_riders"/>
+                <field name="comment">Usuario que gestiona las ordenes, drivers y rutas</field>
+
+                <!--LOS MIEMBROS DEL GRUPO DIRECTOR TAMBIEN SON MIEMBROS DEL RUPO DE USUARIO-->
+                <field name="implied_ids" eval="[(4, ref('groups_riders_usuario'))]"/>
+
+                <!--AÑADIMOS LOS UDUARIOS ADMINISTRADORES-->
+                <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            </record>
+
+        </data>
+    </odoo>
+

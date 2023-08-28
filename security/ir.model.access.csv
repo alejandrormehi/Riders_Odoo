@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_riders_drivers_usuario,riders.drivers.usuario,model_riders_drivers,riders.groups_riders_usuario,1,1,1,1
+access_riders_routes_usuario,riders.routes.usuario,model_riders_routes,riders.groups_riders_usuario,1,1,1,1
+access_riders_orders_usuario,riders.orders.usuario,model_riders_orders,riders.groups_riders_usuario,1,0,0,0
+access_riders_orders_director,riders.orders.director,model_riders_orders,riders.groups_riders_director,1,1,1,1
